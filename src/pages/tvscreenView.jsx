@@ -6,7 +6,7 @@ import CommodityTable from "../components/CommodityTable";
 import NewsTicker from "../components/News";
 import LondonFix from "../components/LondonFix";
 import TradingViewWidget from "../components/TradingView";
-import kingChoice from "../assets/kingChoice.png";
+import kingChoices from "../assets/KingChoice.png";
 import Carousel from "../components/Carousel";
 import {
   fetchSpotRates,
@@ -196,7 +196,7 @@ function TvScreen() {
         <Box
           className="flex flex-col items-center justify-between"
         >
-          <img src={kingChoice} alt="" className="w-48 h-48" />
+          <img src={kingChoices} alt="" className="w-48 h-48" />
         </Box>
 
         {/* Carousel */}
