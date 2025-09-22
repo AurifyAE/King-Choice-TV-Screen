@@ -116,7 +116,7 @@ const SpotRate = () => {
         <Grid item xs={6}>
           <Box
             sx={{
-              background: getBackgroundColor(data.askChanged),
+              background: getBackgroundColor(data.bidChanged),
               borderRadius: "8px",
               padding: "8px",
               textAlign: "center",
@@ -146,7 +146,7 @@ const SpotRate = () => {
               >
                 {data.ask}
               </Typography>
-              {getChangeIcon(data.askChanged)}
+              {getChangeIcon(data.bidChanged)}
             </Box>
           </Box>
         </Grid>
