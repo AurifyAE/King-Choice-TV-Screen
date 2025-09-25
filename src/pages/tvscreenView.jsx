@@ -6,6 +6,7 @@ import CommodityTable from "../components/CommodityTable";
 import NewsTicker from "../components/News";
 import LondonFix from "../components/LondonFix";
 import TradingViewWidget from "../components/TradingView";
+import TradingViewWidget2 from "../components/StockTrading";
 import kingChoices from "../assets/KingChoice.png";
 import Carousel from "../components/Carousel";
 import {
@@ -16,6 +17,7 @@ import {
 } from "../api/api";
 import io from "socket.io-client";
 import { useSpotRate } from "../context/SpotRateContext";
+import VideoPlayer from "../components/VideoPlayer";
 
 function TvScreen() {
   const [showLimitModal, setShowLimitModal] = useState(false);
@@ -196,16 +198,8 @@ function TvScreen() {
         <Box
           className="flex flex-col items-center justify-between"
         >
-          <img src={kingChoices} alt="" className="w-48 h-48" />
+          <img src={kingChoices} alt="" className="w-32 h-32" />
         </Box>
-
-        {/* Carousel */}
-        {/* <Carousel /> */}
-
-        {/* SpotRate Component */}
-        <div className="min-w-[700px]">
-          <SpotRate />
-        </div>
 
         {/* Updated Date & Time Section */}
         <Box
@@ -215,7 +209,7 @@ function TvScreen() {
           <Typography
             sx={{
               color: "#C79324",
-              fontSize: "6vw",
+              fontSize: "4.5vw",
               fontWeight: "bold",
               lineHeight: 1,
             }}
@@ -239,6 +233,14 @@ function TvScreen() {
 
         </Box>
 
+        {/* Carousel */}
+        {/* <Carousel /> */}
+
+        {/* SpotRate Component */}
+        <div className="min-w-[600px]">
+          <SpotRate />
+        </div>
+
         {/* <TimeDisplay /> */}
       </Box>
 
@@ -257,6 +259,9 @@ function TvScreen() {
 
           {/* London Fix Component */}
           <LondonFix marketData={marketData} />
+
+          {/* Video Player Component */}
+          <VideoPlayer />
         </Grid>
 
         {/* Side: SpotRate */}
@@ -264,6 +269,9 @@ function TvScreen() {
 
           {/* TradingView Widget */}
           <TradingViewWidget />
+
+          {/* Stock Trading Component */}
+          <TradingViewWidget2/>
 
           {/* <Box className="flex flex-col justify-center items-center">
             <Typography sx={{ fontSize: "1.2vw", marginTop: "0px" }}>

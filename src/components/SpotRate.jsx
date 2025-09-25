@@ -18,9 +18,9 @@ const SpotRate = () => {
 
   const getChangeIcon = (change) => {
     if (change === "up") {
-      return <ArrowUpwardIcon sx={{ fontSize: "1rem", marginLeft: "4px" }} />;
+      return <ArrowUpwardIcon sx={{ fontSize: "0.6rem", marginLeft: "2px" }} />;
     } else if (change === "down") {
-      return <ArrowDownwardIcon sx={{ fontSize: "1rem", marginLeft: "4px" }} />;
+      return <ArrowDownwardIcon sx={{ fontSize: "0.6rem", marginLeft: "2px" }} />;
     }
     return null;
   };
@@ -29,14 +29,14 @@ const SpotRate = () => {
     <Box
       sx={{
         background: "rgba(209, 164, 79, 0.05)",
-        border: "2px solid #C79324",
-        borderRadius: "12px",
-        padding: "16px",
+        border: "1px solid #C79324",
+        borderRadius: "6px",
+        padding: "8px",
         height: "100%",
         transition: "all 0.3s ease",
         "&:hover": {
-          transform: "translateY(-2px)",
-          boxShadow: "0 8px 25px rgba(209, 164, 79, 0.2)",
+          transform: "translateY(-1px)",
+          boxShadow: "0 4px 15px rgba(209, 164, 79, 0.1)",
         },
       }}
     >
@@ -46,7 +46,7 @@ const SpotRate = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          marginBottom: "12px",
+          marginBottom: "6px",
         }}
       >
         <Typography
@@ -55,7 +55,7 @@ const SpotRate = () => {
             fontSize: isPrimary ? "1.1rem" : "1rem",
             fontWeight: "700",
             textTransform: "uppercase",
-            letterSpacing: "0.1em",
+            letterSpacing: "0.05em",
           }}
         >
           {metal}
@@ -63,7 +63,7 @@ const SpotRate = () => {
         <Typography
           sx={{
             color: "rgba(255, 255, 255, 0.6)",
-            fontSize: "0.75rem",
+            fontSize: "0.9rem",
             fontWeight: "500",
           }}
         >
@@ -72,104 +72,139 @@ const SpotRate = () => {
       </Box>
 
       {/* BID ASK Row */}
-      <Grid container spacing={1} sx={{ marginBottom: "12px" }}>
+      <Grid container spacing={0.5} sx={{ marginBottom: "6px" }}>
         {/* BID */}
         <Grid item xs={6}>
-          <Box
-            sx={{
-              background: getBackgroundColor(data.bidChanged),
-              borderRadius: "8px",
-              padding: "8px",
-              textAlign: "center",
-              border: "1px solid rgba(209, 164, 79, 0.3)",
-            }}
-          >
-            <Typography
+          <Box sx={{ display: "flex", alignItems: "center", gap: "4px" }}>
+            {/* Vertical BID text */}
+            <Box
               sx={{
-                color: "rgba(255, 255, 255, 0.8)",
-                fontSize: "0.65rem",
-                fontWeight: "600",
-                marginBottom: "2px",
-                textTransform: "uppercase",
-                letterSpacing: "0.05em",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                minWidth: "20px",
               }}
             >
-              BID
-            </Typography>
-            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
               <Typography
                 sx={{
-                  color: "#FFFFFF",
-                  fontSize: isPrimary ? "1.4rem" : "1.2rem",
-                  fontWeight: "bold",
-                  fontFamily: "monospace",
+                  color: "rgba(255, 255, 255, 0.8)",
+                  fontSize: "0.7rem",
+                  fontWeight: "600",
+                  writingMode: "vertical-rl",
+                  textOrientation: "mixed",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.05em",
+                  lineHeight: "1",
                 }}
               >
-                {data.bid}
+                BID
               </Typography>
-              {getChangeIcon(data.bidChanged)}
+            </Box>
+            {/* BID value box */}
+            <Box
+              sx={{
+                background: getBackgroundColor(data.bidChanged),
+                borderRadius: "4px",
+                padding: "6px 8px",
+                textAlign: "center",
+                border: "1px solid rgba(209, 164, 79, 0.3)",
+                flex: 1,
+              }}
+            >
+              <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <Typography
+                  sx={{
+                    color: "#FFFFFF",
+                    fontSize: isPrimary ? "1.2rem" : "1.3rem",
+                    fontWeight: "bold",
+                    fontFamily: "monospace",
+                  }}
+                >
+                  {data.bid}
+                </Typography>
+                {getChangeIcon(data.bidChanged)}
+              </Box>
             </Box>
           </Box>
         </Grid>
 
         {/* ASK */}
         <Grid item xs={6}>
-          <Box
-            sx={{
-              background: getBackgroundColor(data.bidChanged),
-              borderRadius: "8px",
-              padding: "8px",
-              textAlign: "center",
-              border: "1px solid rgba(209, 164, 79, 0.3)",
-            }}
-          >
-            <Typography
+          <Box sx={{ display: "flex", alignItems: "center", gap: "4px" }}>
+            {/* Vertical ASK text */}
+            <Box
               sx={{
-                color: "rgba(255, 255, 255, 0.8)",
-                fontSize: "0.65rem",
-                fontWeight: "600",
-                marginBottom: "2px",
-                textTransform: "uppercase",
-                letterSpacing: "0.05em",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                minWidth: "20px",
               }}
             >
-              ASK
-            </Typography>
-            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
               <Typography
                 sx={{
-                  color: "#FFFFFF",
-                  fontSize: isPrimary ? "1.4rem" : "1.2rem",
-                  fontWeight: "bold",
-                  fontFamily: "monospace",
+                  color: "rgba(255, 255, 255, 0.8)",
+                  fontSize: "0.7rem",
+                  fontWeight: "600",
+                  writingMode: "vertical-rl",
+                  textOrientation: "mixed",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.05em",
+                  lineHeight: "1",
                 }}
               >
-                {data.ask}
+                ASK
               </Typography>
-              {getChangeIcon(data.bidChanged)}
+            </Box>
+            {/* ASK value box */}
+            <Box
+              sx={{
+                background: getBackgroundColor(data.bidChanged),
+                borderRadius: "4px",
+                padding: "6px 8px",
+                textAlign: "center",
+                border: "1px solid rgba(209, 164, 79, 0.3)",
+                flex: 1,
+              }}
+            >
+              <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <Typography
+                  sx={{
+                    color: "#FFFFFF",
+                    fontSize: isPrimary ? "1.2rem" : "1.3rem",
+                    fontWeight: "bold",
+                    fontFamily: "monospace",
+                  }}
+                >
+                  {data.ask}
+                </Typography>
+                {getChangeIcon(data.bidChanged)}
+              </Box>
             </Box>
           </Box>
         </Grid>
       </Grid>
 
       {/* HIGH LOW Row */}
-      <Grid container spacing={1}>
+      <Grid container spacing={0.5}>
         <Grid item xs={6}>
           <Box
             sx={{
+              display: "flex", justifyContent: "space-between", alignItems: "center",
               background: "rgba(34, 197, 94, 0.1)",
               border: "1px solid rgba(34, 197, 94, 0.3)",
-              borderRadius: "6px",
-              padding: "6px 8px",
+              borderRadius: "3px",
+              padding: "3px 4px",
               textAlign: "center",
             }}
           >
             <Typography
               sx={{
                 color: "rgba(34, 197, 94, 0.9)",
-                fontSize: "0.6rem",
+                fontSize: "0.9rem",
                 fontWeight: "600",
-                marginBottom: "1px",
+                marginBottom: "0px",
                 textTransform: "uppercase",
               }}
             >
@@ -178,7 +213,7 @@ const SpotRate = () => {
             <Typography
               sx={{
                 color: "#22c55e",
-                fontSize: "0.85rem",
+                fontSize: "0.9rem",
                 fontWeight: "bold",
                 fontFamily: "monospace",
               }}
@@ -190,19 +225,20 @@ const SpotRate = () => {
         <Grid item xs={6}>
           <Box
             sx={{
+              display: "flex", justifyContent: "space-between", alignItems: "center",
               background: "rgba(239, 68, 68, 0.1)",
               border: "1px solid rgba(239, 68, 68, 0.3)",
-              borderRadius: "6px",
-              padding: "6px 8px",
+              borderRadius: "3px",
+              padding: "3px 4px",
               textAlign: "center",
             }}
           >
             <Typography
               sx={{
                 color: "rgba(239, 68, 68, 0.9)",
-                fontSize: "0.6rem",
+                fontSize: "0.9rem",
                 fontWeight: "600",
-                marginBottom: "1px",
+                marginBottom: "0px",
                 textTransform: "uppercase",
               }}
             >
@@ -211,7 +247,7 @@ const SpotRate = () => {
             <Typography
               sx={{
                 color: "#ef4444",
-                fontSize: "0.85rem",
+                fontSize: "0.9rem",
                 fontWeight: "bold",
                 fontFamily: "monospace",
               }}
@@ -231,30 +267,8 @@ const SpotRate = () => {
         marginTop: "0px",
       }}
     >
-      {/* Header */}
-      {/* <Box
-        sx={{
-          textAlign: "center",
-          marginBottom: "16px",
-        }}
-      >
-        <Typography
-          sx={{
-            color: "#FFFFFF",
-            fontWeight: "bold",
-            fontSize: "1.8vw",
-            background: "#000",
-            width: "100%",
-            borderRadius: "10px",
-            padding: "5px",
-          }}
-        >
-          SPOT RATE
-        </Typography>
-      </Box> */}
-
       {/* Compact Spot Rates Grid */}
-      <Grid container spacing={2} sx={{ maxWidth: "800px"}}>
+      <Grid container spacing={1} sx={{ maxWidth: "600px" }}>
         <Grid item xs={12} sm={6}>
           {renderCompactSpotSection("GOLD", goldData, true)}
         </Grid>
@@ -262,48 +276,6 @@ const SpotRate = () => {
           {renderCompactSpotSection("SILVER", silverData, false)}
         </Grid>
       </Grid>
-
-      {/* Market Status Indicator */}
-      {/* <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          marginTop: "16px",
-          gap: "8px",
-        }}
-      >
-        <Box
-          sx={{
-            width: "8px",
-            height: "8px",
-            borderRadius: "50%",
-            backgroundColor: "#22c55e",
-            animation: "pulse 2s infinite",
-            "@keyframes pulse": {
-              "0%": {
-                boxShadow: "0 0 0 0 rgba(34, 197, 94, 0.7)",
-              },
-              "70%": {
-                boxShadow: "0 0 0 10px rgba(34, 197, 94, 0)",
-              },
-              "100%": {
-                boxShadow: "0 0 0 0 rgba(34, 197, 94, 0)",
-              },
-            },
-          }}
-        />
-        <Typography
-          sx={{
-            color: "rgba(255, 255, 255, 0.7)",
-            fontSize: "0.75rem",
-            fontWeight: "500",
-            fontStyle: "italic",
-          }}
-        >
-          Live Market Data • Updated: {new Date().toLocaleTimeString()}
-        </Typography>
-      </Box> */}
     </Box>
   );
 };

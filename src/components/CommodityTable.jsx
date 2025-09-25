@@ -76,45 +76,19 @@ const CommodityTable = ({ commodities }) => {
   return (
     <Box sx={{
       backgroundColor: "transparent",
-      marginTop: "20px",
+      marginTop: "10px",
     }}>
-      {/* Commodity Rates Header */}
-      {/* <Box
-        sx={{
-          textAlign: "center",
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          marginBottom: '20px',
-        }}
-      >
-        <Typography
-          variant="h6"
-          sx={{
-            color: "#FFFFFF",
-            fontWeight: "bold",
-            fontSize: "1.8vw",
-            background: "linear-gradient(to right, #D1A44F 0%, #000000 100%)",
-            width: "100%",
-            borderRadius: "10px",
-            padding: "10px",
-          }}
-        >
-          COMMODITY
-        </Typography>
-      </Box> */}
-
       {/* Commodity Table */}
       <TableContainer
         component={Paper}
         sx={{
           backgroundColor: "transparent",
-          borderRadius: "10px",
+          borderRadius: "5px",
           border: "1px solid #C79324",
           boxShadow: "none",
         }}
       >
-        <Table>
+        <Table size="small">
           {/* Table Head */}
           <TableHead>
             <TableRow
@@ -126,10 +100,11 @@ const CommodityTable = ({ commodities }) => {
                 sx={{
                   color: "#FFFFFF",
                   fontWeight: "bold",
-                  fontSize: { xs: "14px", sm: "16px", md: "18px", lg: "1.4vw" },
+                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.4vw" },
                   textAlign: "left",
                   border: "1px solid #C79324",
                   backgroundColor: "transparent",
+                  padding: "4px 6px",
                 }}
               >
                 COMMODITY
@@ -138,10 +113,11 @@ const CommodityTable = ({ commodities }) => {
                 sx={{
                   color: "#FFFFFF",
                   fontWeight: "bold",
-                  fontSize: { xs: "14px", sm: "16px", md: "18px", lg: "1.4vw" },
+                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.4vw" },
                   textAlign: "center",
                   border: "1px solid #C79324",
                   backgroundColor: "transparent",
+                  padding: "4px 6px",
                 }}
               >
                 BID (AED)
@@ -150,10 +126,11 @@ const CommodityTable = ({ commodities }) => {
                 sx={{
                   color: "#FFFFFF",
                   fontWeight: "bold",
-                  fontSize: { xs: "14px", sm: "16px", md: "18px", lg: "1.4vw" },
+                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.4vw" },
                   textAlign: "center",
                   border: "1px solid #C79324",
                   backgroundColor: "transparent",
+                  padding: "4px 6px",
                 }}
               >
                 ASK (AED)
@@ -219,11 +196,11 @@ const CommodityTable = ({ commodities }) => {
                     sx={{
                       color: "#C79324",
                       fontWeight: "bold",
-                      fontSize: { xs: "16px", sm: "18px", md: "20px", lg: "1.5vw" },
+                      fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.4vw" },
                       textAlign: "left",
                       border: "1px solid #C79324",
                       backgroundColor: "transparent",
-                      padding: "10px",
+                      padding: "4px 6px",
                     }}
                   >
                     {getMetalName(commodity.metal)}{" "}
@@ -238,11 +215,11 @@ const CommodityTable = ({ commodities }) => {
                     sx={{
                       color: "#C79324",
                       fontWeight: "bold",
-                      fontSize: { xs: "16px", sm: "18px", md: "20px", lg: "1.6vw" },
+                      fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.4vw" },
                       textAlign: "center",
                       border: "1px solid #C79324",
                       backgroundColor: "transparent",
-                      padding: "10px",
+                      padding: "4px 6px",
                     }}
                   >
                     {formatValue(buyPrice, weight)}
@@ -253,11 +230,11 @@ const CommodityTable = ({ commodities }) => {
                     sx={{
                       color: "#C79324",
                       fontWeight: "bold",
-                      fontSize: { xs: "16px", sm: "18px", md: "20px", lg: "1.6vw" },
+                      fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.4vw" },
                       textAlign: "center",
                       border: "1px solid #C79324",
                       backgroundColor: "transparent",
-                      padding: "10px",
+                      padding: "4px 6px",
                     }}
                   >
                     {formatValue(sellPrice, weight)}

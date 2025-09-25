@@ -31,19 +31,19 @@ const LondonFix = () => {
   return (
     <Box sx={{
       backgroundColor: "transparent",
-      marginTop: "30px",
+      marginTop: "20px",
     }}>
       {/* London Fix Table */}
       <TableContainer
         component={Paper}
         sx={{
           backgroundColor: "transparent",
-          borderRadius: "10px",
+          borderRadius: "5px",
           border: "1px solid #D1A44F",
           boxShadow: "none",
         }}
       >
-        <Table>
+        <Table size="small">
           {/* Table Head for Gold */}
           <TableHead>
             <TableRow sx={{ backgroundColor: "#000000" }}>
@@ -51,10 +51,11 @@ const LondonFix = () => {
                 sx={{
                   color: "#FFFFFF",
                   fontWeight: "bold",
-                  fontSize: { xs: "14px", sm: "16px", md: "18px", lg: "1.4vw" },
+                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.4vw" },
                   textAlign: "center",
                   border: "1px solid #C79324",
                   width: "25%",
+                  padding: "4px 6px",
                 }}
               >
                 METAL
@@ -63,10 +64,11 @@ const LondonFix = () => {
                 sx={{
                   color: "#FFFFFF",
                   fontWeight: "bold",
-                  fontSize: { xs: "14px", sm: "16px", md: "18px", lg: "1.4vw" },
+                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.4vw" },
                   textAlign: "center",
                   border: "1px solid #C79324",
                   width: "25%",
+                  padding: "4px 6px",
                 }}
               >
                 AM FIXING
@@ -75,10 +77,11 @@ const LondonFix = () => {
                 sx={{
                   color: "#FFFFFF",
                   fontWeight: "bold",
-                  fontSize: { xs: "14px", sm: "16px", md: "18px", lg: "1.4vw" },
+                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.4vw" },
                   textAlign: "center",
                   border: "1px solid #C79324",
                   width: "25%",
+                  padding: "4px 6px",
                 }}
               >
                 PM FIXING
@@ -87,10 +90,11 @@ const LondonFix = () => {
                 sx={{
                   color: "#FFFFFF",
                   fontWeight: "bold",
-                  fontSize: { xs: "14px", sm: "16px", md: "18px", lg: "1.4vw" },
+                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.4vw" },
                   textAlign: "center",
                   border: "1px solid #C79324",
                   width: "25%",
+                  padding: "4px 6px",
                 }}
               >
                 CHANGE
@@ -106,22 +110,22 @@ const LondonFix = () => {
                 sx={{
                   color: "#D1A44F",
                   fontWeight: "bold",
-                  fontSize: { xs: "16px", sm: "18px", md: "20px", lg: "1.5vw" },
+                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.4vw" },
                   textAlign: "center",
                   border: "1px solid #C79324",
-                  padding: "10px",
+                  padding: "4px 6px",
                 }}
               >
                 GOLD
               </TableCell>
 
               {/* AM Fixing */}
-              <TableCell sx={{ border: "1px solid #C79324", textAlign: "center", padding: "10px" }}>
+              <TableCell sx={{ border: "1px solid #C79324", textAlign: "center", padding: "4px 6px" }}>
                 <Typography
                   sx={{
                     color: "#C79324",
                     fontWeight: "bold",
-                    fontSize: { xs: "16px", sm: "18px", md: "20px", lg: "1.6vw" },
+                    fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.4vw" },
                   }}
                 >
                   {formatPrice(fixingData.gold.amPrice)}
@@ -129,12 +133,12 @@ const LondonFix = () => {
               </TableCell>
 
               {/* PM Fixing */}
-              <TableCell sx={{ border: "1px solid #C79324", textAlign: "center", padding: "10px" }}>
+              <TableCell sx={{ border: "1px solid #C79324", textAlign: "center", padding: "4px 6px" }}>
                 <Typography
                   sx={{
                     color: "#C79324",
                     fontWeight: "bold",
-                    fontSize: { xs: "16px", sm: "18px", md: "20px", lg: "1.6vw" },
+                    fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.4vw" },
                   }}
                 >
                   {formatPrice(fixingData.gold.pmPrice)}
@@ -142,11 +146,11 @@ const LondonFix = () => {
               </TableCell>
 
               {/* Change */}
-              <TableCell sx={{ border: "1px solid #C79324", textAlign: "center", padding: "10px" }}>
+              <TableCell sx={{ border: "1px solid #C79324", textAlign: "center", padding: "4px 6px" }}>
                 <Typography
                   sx={{
                     color: fixingData.gold.pmPrice > fixingData.gold.amPrice ? "#4CAF50" : "#F44336",
-                    fontSize: { xs: "14px", sm: "16px", md: "18px", lg: "1.4vw" },
+                    fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.4vw" },
                     fontWeight: "bold",
                   }}
                 >
@@ -164,22 +168,22 @@ const LondonFix = () => {
                 sx={{
                   color: "#D1A44F",
                   fontWeight: "bold",
-                  fontSize: { xs: "16px", sm: "18px", md: "20px", lg: "1.5vw" },
+                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.4vw" },
                   textAlign: "center",
                   border: "1px solid #C79324",
-                  padding: "10px",
+                  padding: "4px 6px",
                 }}
               >
                 SILVER
               </TableCell>
 
               {/* Noon Fixing Price */}
-              <TableCell sx={{ border: "1px solid #C79324", textAlign: "center", padding: "10px" }}>
+              <TableCell sx={{ border: "1px solid #C79324", textAlign: "center", padding: "4px 6px" }}>
                 <Typography
                   sx={{
                     color: "#C79324",
                     fontWeight: "bold",
-                    fontSize: { xs: "16px", sm: "18px", md: "20px", lg: "1.6vw" },
+                    fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.4vw" },
                   }}
                 >
                   {formatPrice(fixingData.silver.noonPrice)}
@@ -187,11 +191,24 @@ const LondonFix = () => {
               </TableCell>
 
               {/* Empty cell to maintain table structure */}
-              <TableCell sx={{ border: "1px solid #C79324", textAlign: "center", padding: "10px" }}>
+              <TableCell sx={{ border: "1px solid #C79324", textAlign: "center", padding: "4px 6px" }}>
                 <Typography
                   sx={{
                     color: "white",
-                    fontSize: { xs: "14px", sm: "16px", md: "18px", lg: "1.4vw" },
+                    fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.4vw" },
+                    fontWeight: "bold",
+                  }}
+                >
+                  -
+                </Typography>
+              </TableCell>
+
+              {/* Empty cell for change column */}
+              <TableCell sx={{ border: "1px solid #C79324", textAlign: "center", padding: "4px 6px" }}>
+                <Typography
+                  sx={{
+                    color: "white",
+                    fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.4vw" },
                     fontWeight: "bold",
                   }}
                 >

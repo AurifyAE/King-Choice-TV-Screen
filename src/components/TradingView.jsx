@@ -58,7 +58,7 @@ function TradingViewWidget() {
       {/* Chart Container with Custom Styling */}
       <Box
         sx={{
-          padding: "16px",
+          padding: "16px 0px",
           overflow: "hidden",
           position: "relative",
           minHeight: "400px",
@@ -162,7 +162,7 @@ function TradingViewWidget() {
         <Box
           ref={container}
           sx={{
-            height: "460px",
+            height: "360px",
             width: "100%",
             borderRadius: "8px",
             overflow: "hidden",
