@@ -7,6 +7,7 @@ import NewsTicker from "../components/News";
 import LondonFix from "../components/LondonFix";
 import TradingViewWidget from "../components/TradingView";
 import TradingViewWidget2 from "../components/StockTrading";
+import TradingViewWidget3 from "../components/Currency";
 import kingChoices from "../assets/KingChoice.png";
 import Carousel from "../components/Carousel";
 import {
@@ -209,7 +210,7 @@ function TvScreen() {
           <Typography
             sx={{
               color: "#C79324",
-              fontSize: "4.5vw",
+              fontSize: "3.5vw",
               fontWeight: "bold",
               lineHeight: 1,
             }}
@@ -217,20 +218,32 @@ function TvScreen() {
             {getFormattedTimeWithoutSeconds(dateTime)}
           </Typography>
 
-          {/* Date */}
+          {/* Day */}
           <Typography
             sx={{
               color: "#C79324",
-              fontSize: "1vw",
-              fontWeight: "600",
+              fontSize: "1.2vw",
+              fontWeight: "bold",
               textTransform: "uppercase",
               letterSpacing: "1px",
-              marginBottom: "10px",
+              marginBottom: "5px",
             }}
           >
-            {day} {date} {month} {year}
+            {day}
           </Typography>
 
+          {/* Date, Month, Year */}
+          <Typography
+            sx={{
+              color: "#C79324",
+              fontSize: "1.2vw",
+              fontWeight: "bold",
+              textTransform: "uppercase",
+              letterSpacing: "1px",
+            }}
+          >
+            {date} {month} {year}
+          </Typography>
         </Box>
 
         {/* Carousel */}
@@ -260,18 +273,20 @@ function TvScreen() {
           {/* London Fix Component */}
           <LondonFix marketData={marketData} />
 
-          {/* Video Player Component */}
-          <VideoPlayer />
+          {/* TradingView Widget */}
+          <TradingViewWidget />
         </Grid>
 
         {/* Side: SpotRate */}
         <Grid item xs={12} md={6}>
-
-          {/* TradingView Widget */}
-          <TradingViewWidget />
+          {/* Video Player Component */}
+          <VideoPlayer />
 
           {/* Stock Trading Component */}
           <TradingViewWidget2/>
+
+          {/* Currency Component */}
+          <TradingViewWidget3/>
 
           {/* <Box className="flex flex-col justify-center items-center">
             <Typography sx={{ fontSize: "1.2vw", marginTop: "0px" }}>

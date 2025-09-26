@@ -67,7 +67,7 @@ function TradingViewWidget2() {
   }, []); // Empty dependency array ensures this only runs once
 
   return (
-    <div className="tradingview-widget-container" ref={container}>
+    <div className="tradingview-widget-container mt-3" ref={container}>
       <div className="tradingview-widget-container__widget"></div>
     </div>
   );

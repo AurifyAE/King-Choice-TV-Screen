@@ -100,8 +100,8 @@ const CommodityTable = ({ commodities }) => {
                 sx={{
                   color: "#FFFFFF",
                   fontWeight: "bold",
-                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.4vw" },
-                  textAlign: "left",
+                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.2vw" },
+                  textAlign: "center",
                   border: "1px solid #C79324",
                   backgroundColor: "transparent",
                   padding: "4px 6px",
@@ -113,7 +113,7 @@ const CommodityTable = ({ commodities }) => {
                 sx={{
                   color: "#FFFFFF",
                   fontWeight: "bold",
-                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.4vw" },
+                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.2vw" },
                   textAlign: "center",
                   border: "1px solid #C79324",
                   backgroundColor: "transparent",
@@ -126,7 +126,7 @@ const CommodityTable = ({ commodities }) => {
                 sx={{
                   color: "#FFFFFF",
                   fontWeight: "bold",
-                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.4vw" },
+                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.2vw" },
                   textAlign: "center",
                   border: "1px solid #C79324",
                   backgroundColor: "transparent",
@@ -196,8 +196,8 @@ const CommodityTable = ({ commodities }) => {
                     sx={{
                       color: "#C79324",
                       fontWeight: "bold",
-                      fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.4vw" },
-                      textAlign: "left",
+                      fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.2vw" },
+                      textAlign: "center",
                       border: "1px solid #C79324",
                       backgroundColor: "transparent",
                       padding: "4px 6px",
@@ -215,7 +215,7 @@ const CommodityTable = ({ commodities }) => {
                     sx={{
                       color: "#C79324",
                       fontWeight: "bold",
-                      fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.4vw" },
+                      fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.2vw" },
                       textAlign: "center",
                       border: "1px solid #C79324",
                       backgroundColor: "transparent",
@@ -230,7 +230,7 @@ const CommodityTable = ({ commodities }) => {
                     sx={{
                       color: "#C79324",
                       fontWeight: "bold",
-                      fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.4vw" },
+                      fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.2vw" },
                       textAlign: "center",
                       border: "1px solid #C79324",
                       backgroundColor: "transparent",
