@@ -12,8 +12,8 @@ const NewsTicker = ({ newsItems }) => {
         alignItems: "center",
         justifyContent: "center",
         borderRadius: "10px",
-        height: "50px",
-        marginTop: "20px",
+        height: "35px",
+        marginTop: "5px",
       }}
     >
       <Typography
@@ -23,7 +23,7 @@ const NewsTicker = ({ newsItems }) => {
           color: "white",
           fontWeight: "bold",
           textAlign: "center",
-          fontSize: "1.5vw",
+          fontSize: "1.1vw",
           width: "250px",
           height: "100%",
           borderRadius: "8px",
@@ -46,7 +46,7 @@ const NewsTicker = ({ newsItems }) => {
             display: "inline-block",
             animation: "scroll 40s linear infinite",
             color: "white",
-            fontSize: "2vw",
+            fontSize: "1.2vw",
             textAlign: "center",
           }}
         >
@@ -58,7 +58,7 @@ const NewsTicker = ({ newsItems }) => {
                 marginRight: "4vw",
                 display: "inline-block",
                 color: "white",
-                fontSize: "2vw",
+                fontSize: "1.2vw",
               }}
             >
               {item.description}

@@ -31,7 +31,7 @@ const LondonFix = () => {
   return (
     <Box sx={{
       backgroundColor: "transparent",
-      marginTop: "15px",
+      // marginTop: "15px",
     }}>
       {/* London Fix Table */}
       <TableContainer
@@ -41,6 +41,7 @@ const LondonFix = () => {
           borderRadius: "5px",
           border: "1px solid #D1A44F",
           boxShadow: "none",
+          width: { xs: '100%', sm: '100%', md: '600px', lg: '700px' },
         }}
       >
         <Table size="small">
@@ -51,7 +52,7 @@ const LondonFix = () => {
                 sx={{
                   color: "#FFFFFF",
                   fontWeight: "bold",
-                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.2vw" },
+                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1vw" },
                   textAlign: "center",
                   border: "1px solid #C79324",
                   width: "25%",
@@ -64,7 +65,7 @@ const LondonFix = () => {
                 sx={{
                   color: "#FFFFFF",
                   fontWeight: "bold",
-                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.2vw" },
+                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1vw" },
                   textAlign: "center",
                   border: "1px solid #C79324",
                   width: "25%",
@@ -77,7 +78,7 @@ const LondonFix = () => {
                 sx={{
                   color: "#FFFFFF",
                   fontWeight: "bold",
-                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.2vw" },
+                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1vw" },
                   textAlign: "center",
                   border: "1px solid #C79324",
                   width: "25%",
@@ -90,7 +91,7 @@ const LondonFix = () => {
                 sx={{
                   color: "#FFFFFF",
                   fontWeight: "bold",
-                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.2vw" },
+                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1vw" },
                   textAlign: "center",
                   border: "1px solid #C79324",
                   width: "25%",
@@ -110,7 +111,7 @@ const LondonFix = () => {
                 sx={{
                   color: "#D1A44F",
                   fontWeight: "bold",
-                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.2vw" },
+                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1vw" },
                   textAlign: "center",
                   border: "1px solid #C79324",
                   padding: "4px 6px",
@@ -125,7 +126,7 @@ const LondonFix = () => {
                   sx={{
                     color: "#C79324",
                     fontWeight: "bold",
-                    fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.2vw" },
+                    fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1vw" },
                   }}
                 >
                   {formatPrice(fixingData.gold.amPrice)}
@@ -138,7 +139,7 @@ const LondonFix = () => {
                   sx={{
                     color: "#C79324",
                     fontWeight: "bold",
-                    fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.2vw" },
+                    fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1vw" },
                   }}
                 >
                   {formatPrice(fixingData.gold.pmPrice)}
@@ -150,7 +151,7 @@ const LondonFix = () => {
                 <Typography
                   sx={{
                     color: fixingData.gold.pmPrice > fixingData.gold.amPrice ? "#4CAF50" : "#F44336",
-                    fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.4vw" },
+                    fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1vw" },
                     fontWeight: "bold",
                   }}
                 >
@@ -168,7 +169,7 @@ const LondonFix = () => {
                 sx={{
                   color: "#D1A44F",
                   fontWeight: "bold",
-                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.2vw" },
+                  fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1vw" },
                   textAlign: "center",
                   border: "1px solid #C79324",
                   padding: "4px 6px",
@@ -183,7 +184,7 @@ const LondonFix = () => {
                   sx={{
                     color: "#C79324",
                     fontWeight: "bold",
-                    fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.2vw" },
+                    fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1vw" },
                   }}
                 >
                   {formatPrice(fixingData.silver.noonPrice)}
@@ -195,7 +196,7 @@ const LondonFix = () => {
                 <Typography
                   sx={{
                     color: "white",
-                    fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.2vw" },
+                    fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1vw" },
                     fontWeight: "bold",
                   }}
                 >
@@ -208,7 +209,7 @@ const LondonFix = () => {
                 <Typography
                   sx={{
                     color: "white",
-                    fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1.2vw" },
+                    fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1vw" },
                     fontWeight: "bold",
                   }}
                 >

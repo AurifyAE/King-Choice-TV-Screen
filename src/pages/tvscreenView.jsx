@@ -8,6 +8,7 @@ import LondonFix from "../components/LondonFix";
 import TradingViewWidget from "../components/TradingView";
 import TradingViewWidget2 from "../components/StockTrading";
 import TradingViewWidget3 from "../components/Currency";
+import TradingViewWidget4 from "../components/Currency2";
 import kingChoices from "../assets/KingChoice.png";
 import Carousel from "../components/Carousel";
 import {
@@ -197,7 +198,7 @@ function TvScreen() {
     <Box sx={{ minHeight: "100vh", color: "white", padding: "20px" }}>
       <Box className="flex flex-row items-center justify-between">
         <Box
-          className="flex flex-col items-center justify-between"
+          className="flex flex-col items-center justify-center gap-10"
         >
           <img src={kingChoices} alt="" className="w-32 h-32" />
         </Box>
@@ -210,7 +211,7 @@ function TvScreen() {
           <Typography
             sx={{
               color: "#C79324",
-              fontSize: "3.5vw",
+              fontSize: "2.5vw",
               fontWeight: "bold",
               lineHeight: 1,
             }}
@@ -250,9 +251,12 @@ function TvScreen() {
         {/* <Carousel /> */}
 
         {/* SpotRate Component */}
-        <div className="min-w-[600px]">
+        <div className="min-w-[700px]">
           <SpotRate />
         </div>
+
+        {/* London Fix Component */}
+        <LondonFix marketData={marketData} />
 
         {/* <TimeDisplay /> */}
       </Box>
@@ -270,9 +274,6 @@ function TvScreen() {
           {/* Commodity Table */}
           <CommodityTable commodities={commodities} />
 
-          {/* London Fix Component */}
-          <LondonFix marketData={marketData} />
-
           {/* TradingView Widget */}
           <TradingViewWidget />
         </Grid>
@@ -283,10 +284,12 @@ function TvScreen() {
           <VideoPlayer />
 
           {/* Stock Trading Component */}
-          <TradingViewWidget2/>
+          <TradingViewWidget2 />
 
           {/* Currency Component */}
-          <TradingViewWidget3/>
+          {/* <TradingViewWidget3/> */}
+
+          <TradingViewWidget4 />
 
           {/* <Box className="flex flex-col justify-center items-center">
             <Typography sx={{ fontSize: "1.2vw", marginTop: "0px" }}>
