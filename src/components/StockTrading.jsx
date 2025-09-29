@@ -2,20 +2,17 @@
 import React, { useEffect, useRef, memo } from 'react';
 
 function TradingViewWidget2() {
-  const container = useRef();
+  const widgetContainer = useRef(null);
 
   useEffect(() => {
-    // Clear any existing content to prevent duplicates
-    if (container.current) {
-      container.current.innerHTML = '';
-    }
+    if (widgetContainer.current && !widgetContainer.current.querySelector('script')) {
+      
+      const script = document.createElement("script");
+      script.src = "https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js";
+      script.type = "text/javascript";
+      script.async = true;
 
-    const script = document.createElement("script");
-    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js";
-    script.type = "text/javascript";
-    script.async = true;
-    script.innerHTML = `
-      {
+      script.innerHTML = JSON.stringify({
         "colorTheme": "dark",
         "locale": "en",
         "largeChartUrl": "",
@@ -23,52 +20,27 @@ function TradingViewWidget2() {
         "showSymbolLogo": true,
         "backgroundColor": "#0F0F0F",
         "support_host": "https://www.tradingview.com",
-        "width": "100%",
-        "height": 240,
+        "width": "100%", 
+        "height": 200, 
         "symbolsGroups": [
           {
-            "name": "Forex",
+            "name": "Indices",
             "symbols": [
-              {
-                "name": "BLACKBULL:US30",
-                "displayName": ""
-              },
-              {
-                "name": "NYSE:DIS",
-                "displayName": ""
-              },
-              {
-                "name": "NYSE:GE",
-                "displayName": ""
-              },
-              {
-                "name": "NYSE:HD",
-                "displayName": ""
-              },
-              {
-                "name": "NYSE:NKE",
-                "displayName": ""
-              }
+              { "name": "DJI", "displayName": "Dow Jones/USD" },
+              { "name": "NDQ100", "displayName": "Nasdaq/USD" },
+              { "name": "SP500", "displayName": "S&P 500/USD" },
+              { "name": "BINANCE:BTCUSD", "displayName": "Bitcoin / USD" }
             ]
           }
         ]
-      }`;
-    
-    if (container.current) {
-      container.current.appendChild(script);
-    }
+      });
 
-    // Cleanup function to remove script when component unmounts
-    return () => {
-      if (container.current && script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
-    };
-  }, []); // Empty dependency array ensures this only runs once
+      widgetContainer.current.appendChild(script);
+    }
+  }, []);
 
   return (
-    <div className="tradingview-widget-container mt-3" ref={container}>
-      <div className="tradingview-widget-container__widget"></div>
+    <div className="tradingview-widget-container mt-3" ref={widgetContainer} style={{ height: '240px' }}> 
     </div>
   );
 }

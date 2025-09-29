@@ -21,15 +21,14 @@ function TradingViewWidget4() {
       "backgroundColor": "#0F0F0F",
       "support_host": "https://www.tradingview.com",
       "width": "100%",
-      "height": 200,
+      "height": 160,
       "symbolsGroups": [
         {
           "name": "Forex",
           "symbols": [
-            { "name": "FX:EURUSD", "displayName": "" },
-            { "name": "FX:USDJPY", "displayName": "" },
-            { "name": "SAXO:USDAED", "displayName": "" },
-            { "name": "FX_IDC:USDQAR", "displayName": "" }
+            { "name": "FX_IDC:EURAED", "displayName": "EUR/AED" },
+            { "name": "FX_IDC:GBPAED", "displayName": "GBP/AED" },
+            { "name": "FX_IDC:CADAED", "displayName": "CAD/AED" }
           ]
         }
       ]

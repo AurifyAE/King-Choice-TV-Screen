@@ -24,7 +24,7 @@ function TradingViewWidget() {
         "hide_legend": true,
         "hide_volume": true,
         "hotlist": false,
-        "interval": "D",
+        "interval": "60",
         "locale": "en",
         "save_image": false,
         "style": "1",
