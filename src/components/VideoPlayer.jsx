@@ -12,7 +12,7 @@ const VideoPlayer = () => {
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
-        style={{ minHeight: '480px' }}
+        style={{ minHeight: '440px' }}
         className='rounded-md'
       ></iframe>
     </div>
