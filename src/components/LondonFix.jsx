@@ -19,7 +19,7 @@ const LondonFix = () => {
       pmPrice: 3885.70,
     },
     silver: {
-      noonPrice: 47.395,
+      noonPrice: 47.605,
     }
   };
 
