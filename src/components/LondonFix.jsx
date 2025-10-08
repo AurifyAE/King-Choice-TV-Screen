@@ -16,7 +16,7 @@ const LondonFix = () => {
   const fixingData = {
     gold: {
       amPrice: 4034.75,
-      pmPrice: 3979,
+      pmPrice: 4040.05,
     },
     silver: {
       noonPrice: 49.005,
