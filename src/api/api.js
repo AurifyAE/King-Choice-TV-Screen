@@ -29,3 +29,7 @@ export const fetchTVScreenData = (adminId) => {
         headers: { 'admin-id': adminId }
     });
 };
+
+export const fetchLondonFix = () => {
+    return axiosInstance.get('/london-fix');
+};
