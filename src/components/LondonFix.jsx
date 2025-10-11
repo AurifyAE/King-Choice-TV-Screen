@@ -15,11 +15,11 @@ const LondonFix = () => {
   // Static fixing data - edit these values directly in code
   const fixingData = {
     gold: {
-      amPrice: 4039.00,
-      pmPrice: 4040.05,
+      amPrice: 3998.05,
+      pmPrice: 3974.5,
     },
     silver: {
-      noonPrice: 49.005,
+      noonPrice: 50.760,
     }
   };
 
