@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import io from "socket.io-client";
 import {
   Table,
   TableBody,
@@ -9,31 +10,90 @@ import {
   Box,
   Typography,
   Paper,
+  CircularProgress,
 } from "@mui/material";
+import { fetchLondonFix } from "../api/api";
+
+const SOCKET_URL = import.meta.env.VITE_APP_SOCKET_URL || "http://localhost:8000";
 
 const LondonFix = () => {
-  // Static fixing data - edit these values directly in code
-  const fixingData = {
-    gold: {
-      amPrice: 3998.05,
-      pmPrice: 3974.5,
-    },
-    silver: {
-      noonPrice: 50.760,
+  const [todayFix, setTodayFix] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  // Initial fetch from API
+  const getData = async () => {
+    setLoading(true);
+    try {
+      const res = await fetchLondonFix();
+      console.log(res.data)
+      if (res.data.success) {
+        setTodayFix(res.data.todayFix);
+      }
+    } catch (err) {
+      console.error("Error fetching London Fix:", err);
+    } finally {
+      setLoading(false);
     }
   };
 
-  // Helper function to format price values
-  const formatPrice = (price) => {
-    return price.toFixed(2).toLocaleString();
+  useEffect(() => {
+    getData();
+
+    // Connect to socket
+    const socket = io(SOCKET_URL, {
+      query: { secret: import.meta.env.VITE_APP_SOCKET_SECRET },
+      transports: ["websocket"],
+      withCredentials: true,
+    });
+
+    // Log connection status
+    socket.on("connect", () => {
+      // console.log("Connected to Socket.IO server");
+      // console.log(socket.id);
+    });
+
+    socket.on("connect_error", (err) => {
+      // console.error("Socket connection error:", err.message);
+    });
+
+    // Listen to London Fix updates
+    socket.on("londonfix-updated", (data) => {
+      // console.log("Received londonfix-updated event:", data);
+      // console.log("Real-time update received:", data);
+      setTodayFix(data.todayFix || data.londonFix || null);
+    });
+
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
+
+  const getMetal = (metalType) => {
+    return todayFix?.metals?.find((m) => m.metalType === metalType);
   };
+
+  const formatPrice = (price) => {
+    return price !== null && price !== undefined ? price.toFixed(2).toLocaleString() : "-";
+  };
+
+  if (loading) {
+    return (
+      <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
+        <CircularProgress sx={{ color: "#C79324" }} />
+      </Box>
+    );
+  }
+
+  const gold = getMetal("Gold");
+  const silver = getMetal("Silver");
+  const goldChange = gold?.amPrice && gold?.pmPrice 
+    ? (gold.pmPrice - gold.amPrice).toFixed(2) 
+    : "-";
 
   return (
     <Box sx={{
       backgroundColor: "transparent",
-      // marginTop: "15px",
     }}>
-      {/* London Fix Table */}
       <TableContainer
         component={Paper}
         sx={{
@@ -45,7 +105,6 @@ const LondonFix = () => {
         }}
       >
         <Table size="small">
-          {/* Table Head for Gold */}
           <TableHead>
             <TableRow sx={{ backgroundColor: "#000000" }}>
               <TableCell
@@ -106,7 +165,6 @@ const LondonFix = () => {
           {/* Gold Row */}
           <TableBody>
             <TableRow sx={{ backgroundColor: "transparent" }}>
-              {/* Gold Metal */}
               <TableCell
                 sx={{
                   color: "#D1A44F",
@@ -120,7 +178,6 @@ const LondonFix = () => {
                 GOLD
               </TableCell>
 
-              {/* AM Fixing */}
               <TableCell sx={{ border: "1px solid #C79324", textAlign: "center", padding: "4px 6px" }}>
                 <Typography
                   sx={{
@@ -129,11 +186,10 @@ const LondonFix = () => {
                     fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1vw" },
                   }}
                 >
-                  {formatPrice(fixingData.gold.amPrice)}
+                  {gold ? formatPrice(gold.amPrice) : "-"}
                 </Typography>
               </TableCell>
 
-              {/* PM Fixing */}
               <TableCell sx={{ border: "1px solid #C79324", textAlign: "center", padding: "4px 6px" }}>
                 <Typography
                   sx={{
@@ -142,20 +198,19 @@ const LondonFix = () => {
                     fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1vw" },
                   }}
                 >
-                  {formatPrice(fixingData.gold.pmPrice)}
+                  {gold ? formatPrice(gold.pmPrice) : "-"}
                 </Typography>
               </TableCell>
 
-              {/* Change */}
               <TableCell sx={{ border: "1px solid #C79324", textAlign: "center", padding: "4px 6px" }}>
                 <Typography
                   sx={{
-                    color: fixingData.gold.pmPrice > fixingData.gold.amPrice ? "#4CAF50" : "#F44336",
+                    color: goldChange !== "-" && parseFloat(goldChange) > 0 ? "#4CAF50" : goldChange !== "-" && parseFloat(goldChange) < 0 ? "#F44336" : "white",
                     fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1vw" },
                     fontWeight: "bold",
                   }}
                 >
-                  {fixingData.gold.pmPrice > fixingData.gold.amPrice ? "+" : ""}{(fixingData.gold.pmPrice - fixingData.gold.amPrice).toFixed(2)}
+                  {goldChange !== "-" && parseFloat(goldChange) > 0 ? "+" : ""}{goldChange}
                 </Typography>
               </TableCell>
             </TableRow>
@@ -164,7 +219,6 @@ const LondonFix = () => {
           {/* Silver Row */}
           <TableBody>
             <TableRow sx={{ backgroundColor: "transparent" }}>
-              {/* Silver Metal */}
               <TableCell
                 sx={{
                   color: "#D1A44F",
@@ -178,7 +232,6 @@ const LondonFix = () => {
                 SILVER
               </TableCell>
 
-              {/* Noon Fixing Price */}
               <TableCell sx={{ border: "1px solid #C79324", textAlign: "center", padding: "4px 6px" }}>
                 <Typography
                   sx={{
@@ -187,11 +240,10 @@ const LondonFix = () => {
                     fontSize: { xs: "10px", sm: "11px", md: "15px", lg: "1vw" },
                   }}
                 >
-                  {formatPrice(fixingData.silver.noonPrice)}
+                  {silver ? formatPrice(silver.noonPrice) : "-"}
                 </Typography>
               </TableCell>
 
-              {/* Empty cell to maintain table structure */}
               <TableCell sx={{ border: "1px solid #C79324", textAlign: "center", padding: "4px 6px" }}>
                 <Typography
                   sx={{
@@ -204,7 +256,6 @@ const LondonFix = () => {
                 </Typography>
               </TableCell>
 
-              {/* Empty cell for change column */}
               <TableCell sx={{ border: "1px solid #C79324", textAlign: "center", padding: "4px 6px" }}>
                 <Typography
                   sx={{
