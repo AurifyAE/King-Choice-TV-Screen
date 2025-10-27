@@ -27,7 +27,7 @@ const LondonFix = () => {
       const res = await fetchLondonFix();
       console.log(res.data)
       if (res.data.success) {
-        setTodayFix(res.data.todayFix);
+        setTodayFix(res.data.todayFix || res.data.historyFix[0] || null);
       }
     } catch (err) {
       console.error("Error fetching London Fix:", err);
