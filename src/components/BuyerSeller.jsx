@@ -9,6 +9,7 @@ const MarketData = styled(Box)(({ theme }) => ({
     padding: theme.spacing(2),
 }));
 
+
 const MarketDataRow = styled(Box)(({ theme }) => ({
     display: "flex",
     justifyContent: "space-between",
