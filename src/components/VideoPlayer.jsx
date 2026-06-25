@@ -6,14 +6,13 @@ const VideoPlayer = () => {
     <div className="w-full h-full mt-5 rounded-md">
       <iframe
         width="100%"
-        height="100%"
-        src="https://www.youtube.com/embed/xBcugR2fM84?si=tE3LxaB3lCPtlU74"
+        height="400"
+        src="https://www.youtube.com/embed/QB5BNdBFujE?si=QQyvp1lECfWhASUq"
         title="YouTube video player"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        style={{ minHeight: "440px" }}
-        className="rounded-md"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
       ></iframe>
     </div>
   );
